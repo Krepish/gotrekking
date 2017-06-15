@@ -1,0 +1,28 @@
+<div class="modals">
+  <div class="modal fade" id="myOrder" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <form class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Вы добавили тур в корзину</h4>
+        </div>
+        <div class="modal-body">
+          <div class="image">
+            <img width="50" height="50" src="{{currentTour.image}}">
+          </div>
+
+          <div class=" description">{{currentTour.tourName}}</div>
+            <!--<input type="text" [value]="currentTour.tourName">-->
+          <!--<div>Название и фото тура</div>-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Вернуться к турам</button>
+          <input type="button" class="btn btn-success"
+                data-dismiss="modal" routerLink="/user/my-cart" value="Перейти в корзину"/>
+        </div>
+      </form><!-- /.modal-content -->
+
+      
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div>

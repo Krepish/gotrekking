@@ -1,0 +1,14 @@
+<div class="cart_container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3>Корзина</h3>
+      <app-cart-item *ngFor="let cartItem of userCart"
+              [cartItem]="cartItem">
+      </app-cart-item>
+      <h2 *ngIf="!(userCart.length)">Корзина пуста</h2>
+      <div *ngIf="!!(userCart.length)">
+          <a class="btn btn-danger"(click)="emptyCart()">Очистить корзину</a>
+      </div>
+    </div>
+  </div>
+</div>

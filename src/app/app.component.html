@@ -1,0 +1,165 @@
+<header class="main-head">
+<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#"><img src="./assets/img/mountain-logo_min.png" alt="Brand"></a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-left">
+				<li><a routerLink="/">Главная</a></li>
+				<li><a routerLink="/tours">Все туры</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Активности<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a routerLink="/tours"
+							   [queryParams]="{'activity':'поход'}">Пешие походы</a></li>
+						<li><a routerLink="/tours"
+							   [queryParams]="{'activity':'велопоход'}">Вело походы</a></li>
+						<li><a  routerLink="/tours"
+							   [queryParams]="{'activity':'дайвинг'}">Дайвинг</a></li>
+						<li><a  routerLink="/tours"
+							   [queryParams]="{'activity':'скалолазание'}">Скалолазание</a></li>
+						<li><a  routerLink="/tours"
+							   [queryParams]="{'activity':'альпинизм'}">Альпинизм</a></li>
+						<li class="divider"></li>
+						<li><a routerLink="/tours">Другое...</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">География<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a routerLink="/tours"
+							   [queryParams]="{'direction':'Египет'}">Египет</a></li>
+						<li><a routerLink="/tours"
+							   [queryParams]="{'direction':'Турция'}">Турция</a></li>
+						<li><a routerLink="/tours"
+							   [queryParams]="{'direction':'Кипр'}">Кипр</a></li>
+						<li><a routerLink="/tours"
+							   [queryParams]="{'direction':'Вьетнам'}">Вьетнам</a></li>
+						<li><a routerLink="/tours"
+							   [queryParams]="{'direction':'Крым'}">Крым</a></li>
+						<li class="divider"></li>
+						<li><a routerLink="/tours">Другое...</a></li>
+					</ul>
+				</li>
+				<li><a href="#">О нас</a></li>
+				<div>
+					
+				</div>
+				
+				<!--<li *ngIf="isLoggedIn"><a routerLink="/user" >Личный кабинет</a></li>-->
+			</ul>
+			
+			<div class="nav navbar-nav navbar-right">
+				<ul class="nav navbar-nav pull-right">
+					<li *ngIf="!!(currentUser)"><a routerLink="/user/my-cart">Моя корзина ({{currentUser.cart.length}})</a></li>
+					<li [attr.data-toggle]="modal ? 'modal': none" data-target="#myCabinet" (click)="isLoggedIn()">
+						<a routerLink="/user">Личный кабинет</a>
+					</li>
+					<li class="lead phone-top">+1 (234) 567 89 12</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer class="main_footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2 col-sm-6">
+				<div class="wrap_logo">
+					<img src="./assets/img/mountain-logoa.jpg" alt="logo">
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<strong> 
+					Команда профессиональных <br> 
+					гидов GoTravel 
+				</strong>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="lead footer_phone">
+					+1 (234) 567 89 12<br>
+					<a href="#myCall" class="callback" data-toggle="modal">Заказать звонок</a>
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-6" >
+				<a href="#" class="developer">
+				<small>разработка сайта:</small><br>				
+					gotootog.com
+				</a>
+			</div>
+		</div>	
+	</div>
+</footer>
+<!--модальное окно для заказа звонка-->
+<div class="modals">
+	<div class="modal fade" id="myCall"  tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+
+			<form class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Заказать звонок</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label class="control-label" for="inputDefault">Ваше имя:</label>
+					<input type="text" class="form-control" id="inputDefault">
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="inputDefault">Ваше телефон:</label>
+					<input type="text" class="form-control" id="inputDefault">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Отмена</button>
+				<button type="submit" class="btn btn-success">Заказать</button>
+			</div>
+			</form><!-- /.modal-content -->
+
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</div>
+<!--модальное окно авторизации-->
+<div class="modals">
+	<div class="modal fade" id="myCabinet"  tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+
+			<form class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Войти в личный кабинет</h4>
+				<p>{{infoMessage}}</p>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label class="control-label" for="inputDefault">Ваш логин:</label>
+					<input type="text" class="form-control" id="inputDefault" #login>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="inputDefault">Ваш пароль:</label>
+					<input type="text" class="form-control" id="inputDefault" #password>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-success"
+									  data-dismiss="modal" 
+									  (click)="logIn(login.value,password.value)">Войти</button>
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Отмена</button>
+			</div>
+			</form><!-- /.modal-content -->
+
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</div>

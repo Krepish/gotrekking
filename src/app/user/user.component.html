@@ -1,0 +1,128 @@
+<section class="user_component">
+	<div class="container">
+  <div class="row">
+	<!--основное содержание-->
+	<div class="col-sm-8 col-sm-push-4 col-md-9 col-md-push-3 ">
+		<router-outlet></router-outlet>
+  </div>
+  <!--колонка слева-->
+	<div class="col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-9 ">
+    <aside class="left-side">
+					<div class="box">
+						<div class="panel panel-default">
+							<div class="panel-heading">						
+								<div class="form-group">	
+								<div class="input-group">
+									<input type="text" class="form-control" value="Поиск по сайту">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
+									</span>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+          <div class="user_menu">
+						<div class="panel panel-default">
+							<div class="panel-body user">
+								{{currentUser.userName}} {{currentUser.userSurname}}<br><br>
+								<a class="btn btn-primary btn-xs" (click)="logOut()">Выйти</a>
+							</div>
+            <ul class="nav nav-pills nav-stacked">
+							<li><a routerLink="/user">
+							<i class="glyphicon glyphicon-home"></i> Стартовая страница</a></li>
+              <li><a routerLink="/user/my-data">
+								<i class="glyphicon glyphicon-user"></i> Мои данные</a>
+							</li>
+              <li><a routerLink="/user/my-cart">
+								<i class="glyphicon glyphicon-shopping-cart"></i> 
+								Моя корзина ({{currentUser.cart.length}})</a>
+							</li>
+              <li><a routerLink="/user/my-tours">
+								<i class="glyphicon glyphicon-send"></i> 
+								Мои туры  ({{currentUser.tours.length}})</a>
+							</li>
+              <li class="disabled"><a routerLink="/user">Диалог с оператором</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                  Dropdown <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+						</div>
+          </div>
+          
+					
+					<div class="box box_articles">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<h4>Интересные статьи</h4>
+								<div id="asideCarousel" class="carousel slide carousel-fade aside_carousel" data-ride="carousel">
+									<div class="carousel-inner" role="listbox">
+										<div class="item active">
+											<div class="aside_carousel_container">
+												<h4 class="lead">Типы обуви для походов </h4>
+												<div class="aside_article">
+													<p>Что такое трекинговая обувь? Это специально разработанные кроссовки и ботинки, способные спокойно переносить тяготы разных видов походов.</p>
+													<p>Последние делят данный вид снаряжения на четыре типа: 1) Трекинговые кроссовки.Невысокие, имеют специальную эластичную подошву, пружинящую при ходьбе...</p>
+												</div>
+												<a href="http://extremeguide.ru/blogs/trekingovaya-obuv/" class="more" target="_blank">Читать далее ></a>
+											</div>
+										</div>
+										<div class="item">
+											<div class="aside_carousel_container">
+												<h4 class="lead">Подготовка к походу</h4>
+												<div class="aside_article">
+													<p>Независимо от того, организуете вы свой трекинг самостоятельно или сотрудничаете в этом деле с туристической фирмой, нужна грамотная подготовка к походу.</p>
+													<p>Если кажется, что все сводится к сбору необходимых вещей и предметов в рюкзак – это заблуждение...</p>
+												</div>
+												<a href="http://extremeguide.ru/blogs/podgotovka-k-pohodu/" class="more" target="_blank">Читать далее ></a>
+											</div>
+										</div>
+										<div class="item">
+											<div class="aside_carousel_container">
+												<h4 class="lead">Что взять с собой в горы</h4>
+												<div class="aside_article">
+													<p>Список того, что взять в поход в горы для зимнего и летнего трекинга отличается только несколькими специфическими для каждого сезона, а также вида похода вещами и предметами.</p>
+													<p>Поскольку тема данной статьи носит общий характер, будем отталкиваться от самого сложного – зимних походов...</p>
+												</div>
+												<a href="http://extremeguide.ru/blogs/chto-vzyat-s-soboy-v-goryi/" class="more" target="_blank">Читать далее ></a>
+											</div>
+										</div>
+									</div>
+									<!-- Indicators -->
+									<ol class="carousel-indicators">
+										<li data-target="#asideCarousel" data-slide-to="0" class="active"></li>
+										<li data-target="#asideCarousel" data-slide-to="1"></li>
+										<li data-target="#asideCarousel" data-slide-to="2"></li>
+									</ol>
+									<div class="carousel_controls">
+										<a class="left carousel-control" href="#asideCarousel" role="button" data-slide="prev">
+											<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+											<span class="sr-only">Previous</span>
+										</a>
+										<a class="right carousel-control" href="#asideCarousel" role="button" data-slide="next">
+											<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+											<span class="sr-only">Next</span>
+										</a>
+									</div>
+
+									
+								</div><!-- /.carousel -->
+							</div>
+						</div>
+					</div>
+				
+				</aside>
+  </div>
+  </div>
+	</div>
+</section>

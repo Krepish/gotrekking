@@ -1,0 +1,29 @@
+<div class="tour col-md-4 col-sm-6 col-xs-6">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <img src="{{tour.image}}" alt="image" class = "img-responsive">
+        <div class="tour_content">
+          <div class="tour_title">
+            <h3>{{tour.tourName}}</h3>
+          </div>
+          <p>{{tour.description}}</p>
+          <div class="tour_footer">
+            <div *ngIf="isLoggedIn" class="booking_btn">
+              <a class="btn btn-success" data-toggle="modal" 
+                 data-target="#myOrder" (click)="order(tour)">Заказать</a>
+            </div>
+            <p><strong> Цена: {{tour.price}} EUR </strong></p>
+            <ul>
+              <li *ngFor="let activity of tour.activities">
+                {{activity}}
+              </li>
+            </ul>
+          </div>
+        </div>     
+     </div>
+  </div>
+</div>
+
+<app-modal-tour></app-modal-tour>
+
+

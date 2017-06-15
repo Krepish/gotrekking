@@ -1,0 +1,43 @@
+<div *ngIf = "currentCartItem"  class="modals">
+  <div class="modal fade" id="confirm" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      
+      <form class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Вы хотите приобрести тур?</h4>
+        </div>
+        <div class="modal-body">
+          <div class="image">
+            <img width="50" height="50" src="{{currentCartItem.tour.image}}">
+          </div>
+          <div>{{currentCartItem.tour.tourName}}</div>
+        </div>
+        <div class="modal-footer">  
+          <a class="btn btn-success" data-toggle="modal" data-dismiss="modal"
+             data-target="#infoWindow" (click)="buyTour(currentCartItem)">Да</a>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Нет</button>
+        </div>
+      </form><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div>
+
+<div class="modals">
+  <div class="modal fade" id="infoWindow" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      
+      <form class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+             <h3 class="modal-title">Вы приобрели тур. Скоро наш менеджер с вами свяжется.</h3>
+        </div>
+        <div class="modal-footer"> 
+          <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+        </div>
+      </form><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div>

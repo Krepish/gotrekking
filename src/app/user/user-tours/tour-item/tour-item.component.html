@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+    <div class="row">
+      <div class="col-md-6 image">
+        <img src="{{tourItem.tour.image}}">
+      </div>
+      <div class="col-md-6 description">
+        <div><strong>Название:</strong> {{tourItem.tour.tourName}}</div>  
+        <div><strong>Направление:</strong> {{tourItem.tour.direction}}</div>  
+        <div><strong>Тип тура:</strong> {{tourItem.tour.activities.join("/")}}</div>
+        <div><strong>Даты:</strong> {{tourItem.tour.startDate}} - {{tourItem.tour.endDate}}</div>
+        <div><strong>Цена:</strong> {{tourItem.tour.price}} EUR</div> 
+      </div>
+	  </div>
+  </div>
+</div>

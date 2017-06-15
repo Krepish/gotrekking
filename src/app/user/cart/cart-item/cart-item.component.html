@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+    <div class="row">
+      <div class="col-md-6 image">
+        <img src="{{cartItem.tour.image}}">
+      </div>
+      <div class="col-md-6 description">
+        <div><strong>Название:</strong> {{cartItem.tour.tourName}}</div>  
+        <div><strong>Направление:</strong> {{cartItem.tour.direction}}</div>  
+        <div><strong>Тип тура:</strong> {{cartItem.tour.activities.join("/")}}</div>
+        <div><strong>Даты:</strong> {{cartItem.tour.startDate}} - {{cartItem.tour.endDate}}</div>
+        <div><strong>Цена:</strong> {{cartItem.tour.price}} EUR</div> 
+        <div class="">
+          <a class="btn btn-success" data-toggle="modal" 
+             data-target="#confirm" (click)="toBuyTour(cartItem)">Купить тур</a>
+        </div>
+        <div class="">
+          <a class="btn btn-danger" (click)="deleteTour(cartItem)">Удалить</a>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
+
+<app-modal-cart></app-modal-cart>

@@ -1,0 +1,11 @@
+<div class="cart_container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h2>Мои туры</h2>
+      <app-tour-item *ngFor="let tourItem of userTours"
+              [tourItem]="tourItem">
+      </app-tour-item>
+      <h3 *ngIf="!(userTours.length)">Нет приобретенных туров</h3>
+    </div>
+  </div>
+</div>

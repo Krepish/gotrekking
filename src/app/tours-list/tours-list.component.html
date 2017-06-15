@@ -1,0 +1,59 @@
+<div class="tours_container">
+  <div class="container tours_select">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form>
+          <div class="row">
+            <div class="form-group col-md-3">
+              <div class="">
+                <select class="form-control" id="direction" 
+                        name="direction" [(ngModel)]="directionValue" 
+                        #selectedDirection="ngModel">
+                  <option *ngFor = "let direction of directions" [value]="direction">
+                    {{direction}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="">
+                <select class="form-control" id="activitiy" 
+                        name="activitiy" [(ngModel)]="activitiyValue"
+                        #selectedActivity="ngModel">
+                  <option *ngFor = "let activitiy of activities" [value]="activitiy">
+                    {{activitiy}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group col-md-2">
+              <input class="form-control" id="disabledInput" type="text" placeholder="Дата отправления" disabled="">
+            </div>
+            <div class="form-group col-md-2">
+              <input class="form-control" id="disabledInput" type="text" placeholder="Дата прибытия" disabled="">
+            </div>
+            <div class="form-group col-md-2">
+              <div class="">
+                <button type="submit" class="btn btn-primary"
+                       (click)="onSearch(selectedDirection.model, selectedActivity.model)">Найти</button>
+              </div>
+            </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="toursNotFound" class="container info_message">
+    <p>Туры не найдены :(</p>
+  </div>
+
+  <div class="container tours_list_container">
+    <div class="row">      
+        <app-tour *ngFor = "let tour of tours | sortTours:direction:activity"
+                           [tour] = "tour"
+                           [isLoggedIn] = "isLoggedIn">
+        </app-tour> 
+    </div>
+  </div>
+</div>

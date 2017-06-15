@@ -1,0 +1,19 @@
+[
+    {
+        "email":"pushkar@mail",
+        "password":"pushkar",
+        "id":1
+    },
+    {
+        "email":"suvorov@mail",
+        "password":"suvorov",
+        "id":2
+    },
+    {
+        "userName":"Райнхолд",
+        "userSurname":"Месснер",
+        "email":"messner@mail",
+        "password":"messner",
+        "id":3
+    }
+]
